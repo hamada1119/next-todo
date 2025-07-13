@@ -1,3 +1,4 @@
+import { ST } from 'next/dist/shared/lib/utils';
 import { createContext, useContext, useState, useCallback } from 'react';
 import React from 'react';
 
@@ -8,21 +9,21 @@ type EditedTask={
 
 type State = {
         editedTask: EditedTask
-        updatedEditedTask: (payload: EditedTask)=> void
+        updateEditedTask: (payload: EditedTask)=> void
         resetEditedTask: () =>void
     }
 
 
 const StoreContext = createContext<State>({
     editedTask: { id: 0, title: '' },
-    updatedEditedTask: () => {},
+    updateEditedTask: () => {},
     resetEditedTask: () => {},
     });
 
 export const StoreProvider: React.FC<{ children:React.ReactNode }> = ({children})=>{
     const [editedTask, setEditedTask] = useState<EditedTask>({id: 0, title:''});
 
-    const updatedEditedTask = (payload:EditedTask) =>{
+    const updateEditedTask = (payload:EditedTask) =>{
         setEditedTask(payload)
     };
 
@@ -32,7 +33,7 @@ export const StoreProvider: React.FC<{ children:React.ReactNode }> = ({children}
 
     const value : State = {
         editedTask,
-        updatedEditedTask,
+        updateEditedTask,
         resetEditedTask,
     };
     return (
@@ -42,8 +43,11 @@ export const StoreProvider: React.FC<{ children:React.ReactNode }> = ({children}
     );
 };
 
-export const useStore = () => useContext(StoreContext);
-
+export const useStore = (): State => {
+    const context = useContext(StoreContext)
+    if (!context) throw new Error('useStore must be used within a StoreProvider')
+    return context
+}
 
 // //zustandを使ったver
 // import { create } from 'zustand';

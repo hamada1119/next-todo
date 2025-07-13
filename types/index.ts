@@ -7,7 +7,7 @@ export type Task= {
 export type CsrfToken ={
     csrf_token: string
 }
-export type credential ={
+export type Credential ={
     email: string
     password: string
 }
