@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useStore } from "@/app/store";
-import { Credential } from "../../types";
-import { useError } from "./useError";
-import { Task } from "../../types";
+import { Credential } from "../../../types";
+import { useError } from "../useError";
+import { Task } from "../../../types";
 import { useCallback } from "react";
 // import { useMutation } from '@tanstack/react-query'
 

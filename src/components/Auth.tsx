@@ -2,7 +2,7 @@
 
 import React, { FormEvent } from 'react'
 import { useState } from 'react'
-import { useMutateAuth } from '@/hooks/useMutateAuth'
+import { useMutateAuth } from '@/hooks/auth/useMutateAuth'
 import { 
   Box,
   Typography,

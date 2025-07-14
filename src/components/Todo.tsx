@@ -2,7 +2,7 @@
 
 import React, { FormEvent } from 'react'
 import { useState, useCallback,useEffect } from 'react'
-import { useMutateAuth } from '@/hooks/useMutateAuth'
+import { useMutateAuth } from '@/hooks/auth/useMutateAuth'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { 
   Tooltip,
