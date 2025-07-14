@@ -15,7 +15,7 @@ export const useMutateAuth= () =>{
     const login = useCallback(
         async (user: Credential, onSuccess?: () => void) =>{
             try{
-                await axios.post(`{process.env.NEXT_PUBLIC_API_URL}/login`,user)
+                await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/login`,user)
                 router.push('/todo')
                 onSuccess?.()
             } catch (err: any){
@@ -29,7 +29,7 @@ export const useMutateAuth= () =>{
     const register = useCallback(
         async (user: Credential, onSuccess?: () => void) => {
             try{
-                await axios.post(`{process.env.NEXT_PUBLIC_API_URL}/signup`,user)
+                await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/signup`,user)
                 onSuccess?.()
             } catch(err: any){
                 switchErrorHandling(
@@ -42,7 +42,7 @@ export const useMutateAuth= () =>{
     const logout = useCallback(
         async (onSuccess?: () => void) => {
             try {
-                await axios.post(`{process.env.NEXT_PUBLIC_API_URL}/logout`)
+                await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/logout`)
                 resetEditedTask()
                 router.push('/')
                 onSuccess?.()
