@@ -7,7 +7,7 @@ import getErrorMessage from "@/utils/error";
 
 
 
-export const useCreateTask = () => {
+export const useUpdateTask = () => {
     const { switchErrorHandling } = useError()
     const { resetEditedTask } = useStore(); 
 
