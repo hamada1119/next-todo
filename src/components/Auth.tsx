@@ -2,7 +2,6 @@
 
 import React, { FormEvent } from 'react'
 import { useState } from 'react'
-import { useMutateAuth } from '@/hooks/auth/useMutateAuth'
 import { 
   Box,
   Typography,
@@ -12,14 +11,18 @@ import {
   IconButton,
 } from '@mui/material'
 import CheckCircleIcon from "@mui/icons-material/CheckCircle"
-import AutorenewIcon  from '@mui/icons-material/Autorenew';
+import { useRegister } from '@/hooks/auth/useRegister'
+import { useLogin } from '@/hooks/auth/useLogin'
+import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 const Auth = () => {
   const [email, setEmail] = useState('')
   const [pw, setPw]=useState('')
   const [isLogin, setIsLogin]=useState(true)
 
-  const {login, register}=useMutateAuth()
+  const register = useRegister()
+  const login = useLogin()
+
 
   const submitAuthHandler = async(e: FormEvent<HTMLFormElement>)=>{
     e.preventDefault()

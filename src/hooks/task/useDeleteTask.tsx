@@ -22,6 +22,8 @@ export const useDeleteTask = () =>{
             }catch(err:unknown){
                 setError(err);
                 switchErrorHandling(getErrorMessage(err));
+            }finally{
+                setIsLoading(false);
             }
         },[resetEditedTask, switchErrorHandling]
     )
