@@ -125,9 +125,9 @@ export const Todo = () => {
             variant='contained'
             disabled={!editedTask.title.trim()||isOverallLoading} //
           >
-            {isOverallLoading ?<CircularProgress size={20}/> : (editedTask.id===0 ? <AddIcon /> : <EditIcon />) }
-            {/* 上のコードは後で質問*/}
-            {editedTask.id ===0 ? '追加':'更新'}
+            {isOverallLoading ?(<CircularProgress size={20}/> )
+            : (editedTask.id ===0 ? '追加':'更新')
+            }
           </Button>
           {editedTask.id !==0 && (
             <Button 
@@ -136,10 +136,13 @@ export const Todo = () => {
                 setEditedTask({id:0, title:''})
               }} 
               disabled={isOverallLoading}
+              sx={{
+                whiteSpace:'nowrap',
+                // minWidth:'80px'
+              }}
               >
                 キャンセル 
             </Button>
-            // 上の実装がいまいち理解できない
           )}
         </Box>
         {isFetchingTasks ? (

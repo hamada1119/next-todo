@@ -1,7 +1,5 @@
 import axios from "axios"
 
-
-
 const getErrorMessage = (err:unknown):string =>{
     if(axios.isAxiosError(err)){
         if(err.response?.data?.message){
